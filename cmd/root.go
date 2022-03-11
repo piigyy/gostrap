@@ -1,6 +1,5 @@
 /*
-Copyright © 2022 Muhammad Ilham <hi@muhammadilham.xyz>
-
+	Author Muhamamd Ilham <hi@muhammadilham.xyz>
 */
 package cmd
 
