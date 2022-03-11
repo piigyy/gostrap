@@ -19,7 +19,7 @@ const (
 
 // newCmd represents the new command
 var newCmd = &cobra.Command{
-	Use:   "new",
+	Use:   "new [project-name]",
 	Short: "create new golang template project",
 	Long:  `create new golang template project`,
 	Args: func(cmd *cobra.Command, args []string) error {
