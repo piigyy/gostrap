@@ -9,8 +9,9 @@ This CLI actually only do:
 
 YES! You can use any project template you wanted!
 
-<br/><br/>
-<i>please tell me if you have easier way than this CLI. I need it too!</i>
+```txt
+please tell me if you have easier way than this CLI. I need it too!
+```
 
 ## Install
 If you using Go version 1.17 or newer, you can use this command
