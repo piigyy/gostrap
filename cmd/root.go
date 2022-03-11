@@ -13,13 +13,15 @@ import (
 
 var cfgFile string
 
+const (
+	CURRENT_VERSION = "v0.0.3-alpha"
+)
+
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "gostrap",
-	Short: "GoStrap CLI Is Here To Help You Bootstraping Your Go Project",
-	Long: `GoStrap is a CLI that help faster your development time
-	by bootstrapping your go project so you don't really need to start from
-	"scratch."`,
+	Short: getShortDesc(),
+	Long:  getLongDesc(),
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -70,4 +72,16 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
 	}
+}
+
+func getShortDesc() string {
+	return fmt.Sprintf("GoStrap (%s) CLI Is Here To Help You Bootstraping Your Go Project", CURRENT_VERSION)
+}
+
+func getLongDesc() string {
+	return fmt.Sprintf(`GoStrap (%s) is a CLI
+that help faster your development time by bootstrapping
+your go project so you don't really need to start from
+	"scratch."
+	`, CURRENT_VERSION)
 }
