@@ -32,6 +32,23 @@ var newCmd = &cobra.Command{
 		templateSource, _ := cmd.Flags().GetString("template")
 		gomoduleName, _ := cmd.Flags().GetString("module")
 		modulePlaceholder, _ := cmd.Flags().GetString("placeholder")
+		// defaultFlag, _ := cmd.Flags().GetBool("default")
+
+		if templateSource == "" {
+			templateSource = Config.Template
+		}
+
+		if modulePlaceholder == "" {
+			modulePlaceholder = Config.GoModulePlaceholder
+		}
+
+		// if defaultFlag {
+		// 	Config.Template = templateSource
+		// 	fmt.Println("set template as default")
+		// 	if err := Config.Update(); err != nil {
+		// 		fmt.Printf("failed set tempate as default: %v\n", err)
+		// 	}
+		// }
 
 		projectName := args[0]
 		wd, _ := os.Getwd()
@@ -65,6 +82,7 @@ func init() {
 	newCmd.Flags().StringP("template", "t", "https://github.com/golang-standards/project-layout", "chose project structure template")
 	newCmd.Flags().StringP("module", "m", "gostrap", "your go mod name")
 	newCmd.Flags().StringP("placeholder", "p", "", "current go module name in your project structure")
+	newCmd.Flags().BoolP("default", "d", false, "set template flag as default")
 
 	// Here you will define your flags and configuration settings.
 

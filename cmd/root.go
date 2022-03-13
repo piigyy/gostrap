@@ -7,11 +7,15 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/piigyy/gostrap/entity"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
-var cfgFile string
+var (
+	cfgFile string
+	Config  entity.Configuration
+)
 
 const (
 	CURRENT_VERSION = "v0.0.3-alpha"
@@ -71,6 +75,7 @@ func initConfig() {
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+		viper.Unmarshal(&Config)
 	}
 }
 
@@ -82,6 +87,6 @@ func getLongDesc() string {
 	return fmt.Sprintf(`GoStrap (%s) is a CLI
 that help faster your development time by bootstrapping
 your go project so you don't really need to start from
-	"scratch."
+"scratch."
 	`, CURRENT_VERSION)
 }
