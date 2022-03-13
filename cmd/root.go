@@ -75,7 +75,9 @@ func initConfig() {
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
-		viper.Unmarshal(&Config)
+		if err := viper.Unmarshal(&Config); err != nil {
+			fmt.Fprintln(os.Stderr, "failed marshalling to entity.Configuration:", err)
+		}
 	}
 }
 

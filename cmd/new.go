@@ -63,7 +63,11 @@ var newCmd = &cobra.Command{
 			return
 		}
 
-		replaceModuleName(dir, gomoduleName, modulePlaceholder)
+		if err := replaceModuleName(dir, gomoduleName, modulePlaceholder); err != nil {
+			fmt.Printf("error replacing Go module name: %v\n", err)
+			return
+		}
+
 		fmt.Println("finished init you project!")
 	},
 }
@@ -113,7 +117,10 @@ func replaceModuleName(dir, moduleName, placeholder string) error {
 		return err
 	}
 
-	os.Chmod(renameFilename, 0777)
+	if err := os.Chmod(renameFilename, 0777); err != nil {
+		return err
+	}
+
 	rename := exec.Command("./rename.sh", placeholder, moduleName)
 	rename.Dir = dir
 	output, err := rename.Output()
