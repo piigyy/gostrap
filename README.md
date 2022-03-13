@@ -1,4 +1,9 @@
-# GoStrap
+<h1 align="center"><strong>GoStrap</strong></h1>
+
+<div align="center">
+<a href="https://pkg.go.dev/github.com/piigyy/gostrap"><img src="https://pkg.go.dev/badge/github.com/piigyy/gostrap.svg" alt="Go Reference"></a>
+<a href="https://goreportcard.com/report/github.com/piigyy/gostrap"><img src="https://goreportcard.com/badge/github.com/piigyy/gostrap" alt="Go Report Card"></a>
+</div>
 
 **GoStrap** probably will going to be the easiest way for you to create new Go project using your existing project template.
 
