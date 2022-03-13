@@ -1,12 +1,14 @@
 package entity
 
 import (
+	"fmt"
+	"io/ioutil"
 	"os"
 
 	"gopkg.in/yaml.v2"
 )
 
-const CONFIG_LOCATION = "$HOME/.gostrap.yaml"
+const CONFIG_LOCATION = "%s/.gostrap.yaml"
 
 type Configuration struct {
 	Template            string `mapstructure:"template"`
@@ -19,12 +21,6 @@ func (c *Configuration) Update() error {
 		return err
 	}
 
-	f, _ := os.Create(CONFIG_LOCATION)
-	f.WriteString(string(out))
-	if err != nil {
-		return err
-	}
-
-	defer f.Close()
-	return nil
+	osUserDir, _ := os.UserHomeDir()
+	return ioutil.WriteFile(fmt.Sprintf(CONFIG_LOCATION, osUserDir), out, 0777)
 }
