@@ -1,6 +1,6 @@
 # GoStrap
 
-using **GoStrap** probably will going to be the easiest way for you to create new Go project using your existing project template.
+**GoStrap** probably will going to be the easiest way for you to create new Go project using your existing project template.
 
 This CLI actually only do:
 - Clone you Go Project templates to new directory.
@@ -22,3 +22,41 @@ If you using elder version of Go (<1.17), well tbh I don't know if this CLI supp
 ```bash
 go install github.com/piigyy/gostrap@latest
 ```
+
+## How To Use
+After installing GoStrap, simple run this command
+```bash
+gostrap new <project-name> -m <you/golang/module/name> -t <your-golang-project-template> -p <your-go-module-placeholder>
+
+# Example
+gostrap new go-authorization -m github.com/piigyy/authorization -t https://github.com/golang-standards/project-layout -p github.com/YOUR-USER-OR-ORG-NAME/YOUR-REPO-NAME
+```
+
+## How It Work?
+GoStrap work basically copy your Go project template into new directory, remove the `.git` directory, re init new git configuration, and replace the existing go module name with your new go module name.
+
+## Configuration File
+GoStrap configuration file use `.yaml` file. The default `.gostrap.yaml` location is in you home directory (`$HOME/.gostrap.yaml`).
+
+Configuration file will look like this:
+```yaml
+template:
+gomoduleplaceholder:
+```
+
+You can set this file by manually editing `.gostrap.yaml` file or using **GoStrap** command: 
+```bash
+gostrap set [key] [value]
+
+## example
+gostrap set template https://github.com/golang-standards/project-layout
+gostrap set github.com/YOUR-USER-OR-ORG-NAME/YOUR-REPO-NAME
+```
+
+Once you setup **GoStrap** configuration file you don't need to pass template and placeholder flag to `new` command
+
+```bash
+gostrap new microservice -m github.com/piigyy/microservice
+```
+
+The `new` command will automatically set template and placeholder from you `.gostrap.yaml` file.
