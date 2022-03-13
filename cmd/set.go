@@ -20,7 +20,7 @@ var setCmd = &cobra.Command{
 Current available config:
 - template
 - gomoduleplaceholder`,
-	Example: "cobra-clit set template https://github.com/golang-standards/project-layout",
+	Example: "gostrap set template https://github.com/golang-standards/project-layout",
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) > 2 {
 			return fmt.Errorf("expected 2 arguments but found: %d", len(args))
