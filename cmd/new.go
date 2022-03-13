@@ -79,8 +79,8 @@ var newCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(newCmd)
-	newCmd.Flags().StringP("template", "t", "https://github.com/golang-standards/project-layout", "chose project structure template")
-	newCmd.Flags().StringP("module", "m", "gostrap", "your go mod name")
+	newCmd.Flags().StringP("template", "t", "", "chose project structure template")
+	newCmd.Flags().StringP("module", "m", "", "your go mod name")
 	newCmd.Flags().StringP("placeholder", "p", "", "current go module name in your project structure")
 	newCmd.Flags().BoolP("default", "d", false, "set template flag as default")
 
