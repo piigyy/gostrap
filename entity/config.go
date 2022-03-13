@@ -22,5 +22,5 @@ func (c *Configuration) Update() error {
 	}
 
 	osUserDir, _ := os.UserHomeDir()
-	return ioutil.WriteFile(fmt.Sprintf(CONFIG_LOCATION, osUserDir), out, 0777)
+	return ioutil.WriteFile(fmt.Sprintf(CONFIG_LOCATION, osUserDir), out, 0755)
 }
