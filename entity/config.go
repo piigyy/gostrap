@@ -12,7 +12,7 @@ const CONFIG_LOCATION = "%s/.gostrap.yaml"
 
 type Configuration struct {
 	Template            string `mapstructure:"template"`
-	GoModulePlaceholder string `mapstructure:"goModulePlaceholder"`
+	GoModulePlaceholder string `mapstructure:"gomoduleplaceholder"`
 }
 
 func (c *Configuration) Update() error {
