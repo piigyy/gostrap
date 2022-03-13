@@ -32,7 +32,6 @@ var newCmd = &cobra.Command{
 		templateSource, _ := cmd.Flags().GetString("template")
 		gomoduleName, _ := cmd.Flags().GetString("module")
 		modulePlaceholder, _ := cmd.Flags().GetString("placeholder")
-		// defaultFlag, _ := cmd.Flags().GetBool("default")
 
 		if templateSource == "" {
 			templateSource = Config.Template
@@ -41,14 +40,6 @@ var newCmd = &cobra.Command{
 		if modulePlaceholder == "" {
 			modulePlaceholder = Config.GoModulePlaceholder
 		}
-
-		// if defaultFlag {
-		// 	Config.Template = templateSource
-		// 	fmt.Println("set template as default")
-		// 	if err := Config.Update(); err != nil {
-		// 		fmt.Printf("failed set tempate as default: %v\n", err)
-		// 	}
-		// }
 
 		projectName := args[0]
 		wd, _ := os.Getwd()
