@@ -55,7 +55,7 @@ gostrap set [key] [value]
 
 ## example
 gostrap set template https://github.com/golang-standards/project-layout
-gostrap set github.com/YOUR-USER-OR-ORG-NAME/YOUR-REPO-NAME
+gostrap set github.com/YOUR-USER-OR-ORG-NAME/YOUR-REPO-NAME github.com/piigyy/gostrap
 ```
 
 Once you setup **GoStrap** configuration file you don't need to pass template and placeholder flag to `new` command
