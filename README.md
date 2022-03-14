@@ -23,7 +23,7 @@ If you using Go version 1.17 or newer, you can use this command
 ```bash
 go install github.com/piigyy/gostrap@latest
 ```
-If you using elder version of Go (<1.17), well tbh I don't know if this CLI support it. Buy a try wouldn't hurt, right?
+If you using elder version of Go (<1.17), well tbh I don't know if this CLI support it. But a try wouldn't hurt, right?
 ```bash
 go install github.com/piigyy/gostrap@latest
 ```
