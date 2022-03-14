@@ -22,7 +22,7 @@ Current available config:
 - gomoduleplaceholder`,
 	Example: "gostrap set template https://github.com/golang-standards/project-layout",
 	Args: func(cmd *cobra.Command, args []string) error {
-		if len(args) > 2 {
+		if len(args) < 2 {
 			return fmt.Errorf("expected 2 arguments but found: %d", len(args))
 		}
 		return nil
